@@ -241,4 +241,5 @@ cython_debug/
 
 input/*
 output
+.idea
 
