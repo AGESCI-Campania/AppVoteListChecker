@@ -28,7 +28,7 @@ def verify_file(xlsfile: str, output_base:str):
         df.to_excel(outfile, index=False)
     except KeyError:
         print("Manca colonna EMAIL, file non valido")
-    print(f"Verifica completata")
+    print("Verifica completata")
 
 
 if __name__ == '__main__':
@@ -36,7 +36,7 @@ if __name__ == '__main__':
     output_dir = "output"
     inpathsxls = os.path.join(input_path, "*.[xX][lL][sS]")
     inpathsxlsx = os.path.join(input_path, "*.[xX][lL][sS][xX]")
-    xls_files = [f for f in glob(inpathsxls)] + [f for f in glob(inpathsxlsx)]
+    xls_files = list(glob(inpathsxls)) + list(glob(inpathsxlsx))
     if os.path.exists(output_dir):
         shutil.rmtree(output_dir)
     os.makedirs(output_dir, exist_ok=True)
